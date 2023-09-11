@@ -7,6 +7,7 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
+import Logo from './Logo';
 
 const { Header, Sider, Content } = Layout;
 
@@ -19,9 +20,7 @@ const Sidebar: React.FC = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" style={{background:"white"}} >
-            asdasd
-        </div>
+      <Logo/>
         <Menu
           theme="dark"
           mode="inline"
@@ -46,7 +45,7 @@ const Sidebar: React.FC = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header style={{ paddingLeft:10, background: colorBgContainer, display:'flex',justifyContent:'space-between' }}>
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -57,12 +56,13 @@ const Sidebar: React.FC = () => {
               height: 64,
             }}
           />
+          <span>Login</span>
         </Header>
         <Content
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 280,
+            height:'100%',
             background: colorBgContainer,
           }}
         >

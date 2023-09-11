@@ -1,9 +1,9 @@
 import React from 'react';
-import Sidebar from './Sidebar';
+import Sidebar from './LayoutComponent/Sidebar';
 
 function App() {
   return (
-    <div>
+    <div style={{height:'100%'}}>
      <Sidebar/>
     </div>
   );
