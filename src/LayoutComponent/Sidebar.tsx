@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'nav 1',
+              label: 'Clients',
             },
             {
               key: '2',
