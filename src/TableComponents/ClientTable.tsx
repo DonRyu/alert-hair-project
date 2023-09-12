@@ -3,7 +3,7 @@ import CustomTable from "../Commons/CustomTable";
 import { Button, Popconfirm, Tag } from "antd";
 import ClientFormInDrawer from "../DrawerComponents/ClientFormInDrawer";
 import { labels } from "../constants";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined,AlertOutlined } from "@ant-design/icons";
 import OnSearch from "../Commons/OnSearch";
 
 function ClientTable() {
@@ -37,6 +37,16 @@ function ClientTable() {
           })}
         </>
       ),
+    },
+    {
+      title:"",
+      render:()=>{
+        return(
+          <Button type={"primary"}>
+            <AlertOutlined />
+          </Button>
+        )
+      }
     },
     {
       title: "",
