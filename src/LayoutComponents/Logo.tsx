@@ -14,8 +14,7 @@ function Logo() {
 const LogoBox = styled.button`
 width: 100%;
 height: 60px;
-background: rgba(255,255,255,.2);
-border-radius: 6px;
+background: white;
 `;
 
 export default Logo;

@@ -8,34 +8,41 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import Logo from "./Logo";
-import { BrowserRouter as Router,Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router,Routes,useNavigate } from "react-router-dom";
+import ClientTable from "../TableComponents/ClientTable";
+import TypeTable from "../TableComponents/TypeTable";
 
 const { Header, Sider, Content } = Layout;
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+
 
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <Logo />
         <Menu
+          onClick={(e)=>navigate(e.key)} 
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
           items={[
             {
-              key: "1",
+              key: "client",
               icon: <UserOutlined />,
               label: "Clients",
+              
             },
             {
-              key: "2",
+              key: "type",
               icon: <VideoCameraOutlined />,
-              label: "nav 2",
+              label: "Type",
             },
             {
               key: "3",
@@ -76,7 +83,8 @@ const Sidebar: React.FC = () => {
         >
           <Router>
             <Routes>
-              <Route path=""/>
+              <Route path="/client" Component={ClientTable}/>
+              <Route path="/type" Component={TypeTable}/>
             </Routes>
           </Router>
         </Content>

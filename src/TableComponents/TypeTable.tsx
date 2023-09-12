@@ -1,11 +1,11 @@
 import React from 'react';
 
-function ClientTable() {
+function TypeTable() {
     return (
         <div>
-            client
+            type
         </div>
     );
 }
 
-export default ClientTable;
+export default TypeTable;
