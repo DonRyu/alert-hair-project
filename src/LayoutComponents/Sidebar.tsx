@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
 
 
   return (
-    <Layout>
+    <Layout style={{minHeight:700}}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <Logo />
         <Menu
@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => {
             {
               key: "type",
               icon: <VideoCameraOutlined />,
-              label: "Type",
+              label: "Hair Types",
             },
             {
               key: "3",
