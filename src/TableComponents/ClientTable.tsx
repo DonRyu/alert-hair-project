@@ -1,6 +1,9 @@
 import React from 'react';
 import CustomTable from '../Commons/CustomTable';
-import { Tag } from 'antd';
+import { Button, Popconfirm, Tag } from 'antd';
+import ClientFormInDrawer from '../DrawerComponents/ClientFormInDrawer';
+import { labels } from '../constants';
+import { DeleteOutlined } from "@ant-design/icons";
 
 function ClientTable() {
 
@@ -39,6 +42,34 @@ function ClientTable() {
             </>
           ),
         },
+        {
+          title:"",
+          width: 100,
+          render:()=>{
+            return (
+              <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                {/* Drawer component for CRUD product */}
+                <ClientFormInDrawer
+                  title={labels.Edit}
+                  productNumber={0}
+                  currentPage={0}
+                />
+                {/* For deleting, ask user one more time to make sure the data termination */}
+                <Popconfirm
+                  placement="leftTop"
+                  title={"Delete"}
+                  // onConfirm={() => {
+                  //   deleteProduct(elm.productNumber);
+                  // }}
+                  okText={"Yes"}
+                  cancelText={"Cancel"}
+                >
+                  <Button type={"primary"} danger icon={<DeleteOutlined />} />
+                </Popconfirm>
+              </div>
+            );
+          }
+        }
       ];
       
       const data = [
