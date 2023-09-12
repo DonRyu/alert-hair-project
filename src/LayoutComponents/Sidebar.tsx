@@ -16,7 +16,7 @@ const { Header, Sider, Content } = Layout;
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -28,7 +28,6 @@ const Sidebar: React.FC = () => {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <Logo />
         <Menu
-          onClick={(e)=>navigate(e.key)} 
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
