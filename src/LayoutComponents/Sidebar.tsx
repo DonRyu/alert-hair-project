@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -8,11 +8,7 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import Logo from "./Logo";
-import {
-  Route,
-  Routes,
-  useNavigate
-} from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import ClientTable from "../TableComponents/ClientTable";
 import TypeTable from "../TableComponents/TypeTable";
 
@@ -26,10 +22,12 @@ const Sidebar: React.FC = () => {
   } = theme.useToken();
   const navigate = useNavigate();
 
-
+  useEffect(() => {
+    navigate(`${process.env.REACT_APP_BASIC_PATH}/client`);
+  }, []);
 
   return (
-    <Layout style={{minHeight:700}}>
+    <Layout style={{ minHeight: 700 }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <Logo />
         <Menu
@@ -41,13 +39,13 @@ const Sidebar: React.FC = () => {
               key: "client",
               icon: <UserOutlined />,
               label: "Clients",
-              onClick:()=>navigate("/client")
-              
+              onClick: () => navigate(`${process.env.REACT_APP_BASIC_PATH}/client`),
             },
             {
               key: "type",
               icon: <VideoCameraOutlined />,
               label: "Hair Types",
+              onClick:()=>navigate(`${process.env.REACT_APP_BASIC_PATH}/type`)
             },
             {
               key: "3",
@@ -86,10 +84,16 @@ const Sidebar: React.FC = () => {
             background: colorBgContainer,
           }}
         >
-         <Routes>
-          <Route path="/client" Component={ClientTable} />
-          <Route path="/type" Component={TypeTable} />
-        </Routes>
+          <Routes>
+            <Route
+              path={`${process.env.REACT_APP_BASIC_PATH}/client`}
+              Component={ClientTable}
+            />
+            <Route
+              path={`${process.env.REACT_APP_BASIC_PATH}/type`}
+              Component={TypeTable}
+            />
+          </Routes>
         </Content>
       </Layout>
     </Layout>
