@@ -32,8 +32,8 @@ function ClientTable() {
       dataIndex: "types",
       render: (types: []) => (
         <>
-          {types.map((tag: string) => {
-            return <Tag>{tag.toUpperCase()}</Tag>;
+          {types.map((tag: string,key:number) => {
+            return <Tag key={key}>{tag.toUpperCase()}</Tag>;
           })}
         </>
       ),

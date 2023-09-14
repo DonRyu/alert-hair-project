@@ -8,7 +8,11 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import Logo from "./Logo";
-import { Route, BrowserRouter as Router,Routes,useNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useNavigate
+} from "react-router-dom";
 import ClientTable from "../TableComponents/ClientTable";
 import TypeTable from "../TableComponents/TypeTable";
 
@@ -20,6 +24,7 @@ const Sidebar: React.FC = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const navigate = useNavigate();
 
 
 
@@ -36,6 +41,7 @@ const Sidebar: React.FC = () => {
               key: "client",
               icon: <UserOutlined />,
               label: "Clients",
+              onClick:()=>navigate("/client")
               
             },
             {
@@ -80,12 +86,10 @@ const Sidebar: React.FC = () => {
             background: colorBgContainer,
           }}
         >
-          <Router>
-            <Routes>
-              <Route path="/client" Component={ClientTable}/>
-              <Route path="/type" Component={TypeTable}/>
-            </Routes>
-          </Router>
+         <Routes>
+          <Route path="/client" Component={ClientTable} />
+          <Route path="/type" Component={TypeTable} />
+        </Routes>
         </Content>
       </Layout>
     </Layout>
