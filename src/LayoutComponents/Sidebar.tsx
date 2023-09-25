@@ -16,7 +16,6 @@ const { Header, Sider, Content } = Layout;
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  // const navigate = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
